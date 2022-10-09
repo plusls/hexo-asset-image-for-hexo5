@@ -18,7 +18,8 @@ hexo.extend.filter.register('after_post_render', function (data) {
           if (!(/http[s]*.*|\/\/.*/.test(src) || /^\s+\//.test(src) || /^\s*\/uploads|images\//.test(src))) {
             let linkArray = link.split('/').filter(function (elem) { return elem != ''; });
             let srcArray = src.split('/').filter(function (elem) { return elem != '' && elem != '.'; });
-            if (srcArray.length > 1) { srcArray.shift(); }
+            // i don't know why shift
+            // if (srcArray.length > 1) { srcArray.shift(); }
             src = srcArray.join('/');
             $(this).attr('src', config.root + link + src);
           }
